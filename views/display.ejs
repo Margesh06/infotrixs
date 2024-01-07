@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quotes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("/images/bg2.webp");
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        .navbar-brand {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 4s steps(30, end), blink 0.5s step-end infinite;
+            font-size: x-large;
+        }
+
+        .quote-card {
+            max-width: 800px;
+            max-height: 300px;
+            margin: 0 auto;
+            margin-top: 300px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f0f0f0; 
+            padding: 15px;
+        }
+
+        .carousel-inner {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .carousel-inner .item {
+            border-radius: 10px;
+        }
+        h1 {
+        font-family: 'Lilita One', cursive;
+        font-style: italic; 
+    }
+    @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Adjust styles for the search link */
+.search-link {
+    margin-top: 12px;
+    margin-right: 5px;
+}
+
+.search-link form {
+    display: flex;
+    align-items: center;
+}
+
+.search-link input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-link button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    /* background-color: #007bff; Adjust the color as needed */
+    /* color: #fff; */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    </style>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lilita+One&display=swap">
+
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <div class="navbar-header">
+            <h1 class="navbar-brand "><strong>Inspire Quotes Hub</strong></h1>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"><strong>Home</strong></a></li>
+            <li class="search-link">
+                <form id="searchForm" action="/search" method="post">
+                    <input type="text" id="searchText" name="searchText" />
+                    <button type="submit">🔍</button>
+                </form>
+            </li>
+            <li><a href="/details"><strong>View History</strong></a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <section id="home">
+        <div class="container quote-card">
+            <div class="card">
+                <div class="card-body">
+                    <div id="quoteCarousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#quoteCarousel" data-slide-to="0" class="active"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <% quote.forEach((quote, index) => { %>
+                              <div class="item <%= index === 0 ? 'active' : '' %>">
+                                <h1><em><%= quote.quote %></em></h1>
+                                <p class="author-name"><small>- <%= quote.author %></small></p>
+                              </div>
+                            <% }); %>
+                          </div>
+
+                        <a class="left carousel-control" href="#quoteCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#quoteCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* Style the header */
+body {
+	background-color: white;
+
+}
+
+header {
+
+	color: #1abc9c;
+	text-align: center;
+	padding: 20px;
+}
+
+/* Style the navigation bar */
+nav {
+	display: flex;
+	justify-content: center;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+nav li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+nav li a {
+	display: block;
+
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+nav li a:hover {
+	background-color: #ffffff;
+}
+
+/* Style the main content section */
+main {
+	padding: 20px;
+}
+
+section {
+	margin-top: 20px;
+}
+
+h2 {
+
+	text-align: center;
+	color: white;
+	padding: 20px;
+}
+
+#home {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10vh;
+	color: black;
+
+}
+
+.container {
+	text-align: center;
+}
+
+
